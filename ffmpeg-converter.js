@@ -3,7 +3,8 @@ import { fetchFile, toBlobURL } from '@ffmpeg/util';
 
 let ffmpeg;
 let ffmpegLoadingPromise;
-const baseURL = 'https://unpkg.com/@ffmpeg/core-mt@0.12.6/dist/esm';
+const corsProxy = 'https://cors.websim.com/';
+const baseURL = `${corsProxy}https://unpkg.com/@ffmpeg/core-mt@0.12.6/dist/esm`;
 
 export async function loadFfmpeg(progressCallback) {
     if (ffmpeg) return ffmpeg;
