@@ -21,7 +21,7 @@ export async function loadFfmpeg(progressCallback) {
             await ffmpeg.load({
                  coreURL: await toBlobURL(`${baseURL}/ffmpeg-core.js`, 'text/javascript'),
                  wasmURL: await toBlobURL(`${baseURL}/ffmpeg-core.wasm`, 'application/wasm'),
-                 // workerURL for multi-threaded version is not needed with core-mt
+                 workerURL: await toBlobURL(`${baseURL}/ffmpeg-core.worker.js`, 'text/javascript'),
             });
             
             if (progressCallback) progressCallback({ ratio: 0, message: "FFmpeg loaded." });
